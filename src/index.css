@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* ===== CUSTOM THEME VARIABLES ===== */
+:root {
+  --primary: #0f172a;
+  --primary-light: #1e293b;
+  --secondary: #ef4444;
+  --accent: #22c55e;
+  --bg-light: #ffffff;
+  --bg-dark: #020617;
+  --text-light: #f8fafc;
+  --text-dark: #0f172a;
+  --card-light: #ffffff;
+  --card-dark: #0f172a;
+  --glass-light: rgba(255, 255, 255, 0.15);
+  --glass-dark: rgba(15, 23, 42, 0.6);
+}
+
+/* Light mode (default) */
+body {
+  --theme-bg: var(--bg-light);
+  --theme-text: var(--text-dark);
+  --theme-card: var(--card-light);
+  --theme-glass: var(--glass-light);
+  --theme-border: rgba(15, 23, 42, 0.1);
+  --theme-navbar: rgba(255, 255, 255, 0.85);
+  --theme-footer-bg: #0f172a;
+  --theme-footer-text: #f8fafc;
+  --theme-section-alt: #f1f5f9;
+}
+
+/* Dark mode */
+body.dark {
+  --theme-bg: var(--bg-dark);
+  --theme-text: var(--text-light);
+  --theme-card: var(--card-dark);
+  --theme-glass: var(--glass-dark);
+  --theme-border: rgba(248, 250, 252, 0.1);
+  --theme-navbar: rgba(2, 6, 23, 0.9);
+  --theme-footer-bg: #020617;
+  --theme-footer-text: #f8fafc;
+  --theme-section-alt: #0a0f1e;
+}
+
+@theme {
+  --color-primary: #0f172a;
+  --color-secondary: #ef4444;
+  --color-accent: #22c55e;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ===== GLASSMORPHISM UTILITIES ===== */
+.glass {
+  background: var(--theme-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--theme-border);
+}
+
+.glass-card {
+  background: var(--theme-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--theme-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+  border-color: var(--secondary);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--secondary) 0%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.animated-gradient {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #ef4444, #0f172a);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== SECTION STYLING ===== */
+.section-padding {
+  padding: 5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--secondary);
+  color: white;
+}
+
+/* ===== PATTERN OVERLAY ===== */
+.pattern-dots {
+  background-image: radial-gradient(
+    rgba(239, 68, 68, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+/* ===== HERO GLOW ===== */
+.hero-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse-green 2s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* ===== BADGE ===== */
+.badge-pulse {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ===== FADE IN ANIMATION ===== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
