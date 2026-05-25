@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 const demoClasses = [
   {
     id: 1,
-    title: "CCNA Routing & Switching Demo",
+    title: "FortiGate Routing & Switching Demo",
     description:
       "Get a hands-on preview of our CCNA training — real devices, real configurations, real networking.",
     videoId: "cDxxlGVj5wA",
   },
   {
     id: 2,
-    title: "Advanced Networking Demo",
+    title: "FortiGate Networking Demo",
     description:
       "Explore advanced networking concepts with live lab demonstrations and expert guidance.",
     videoId: "Hs_fsvmOMbc",
