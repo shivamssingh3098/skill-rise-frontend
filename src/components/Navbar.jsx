@@ -101,10 +101,10 @@ export default function Navbar() {
               href="https://wa.me/919670095005"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#25D366] text-white text-sm font-medium hover:bg-[#1da851] transition-all duration-200 hover:shadow-lg hover:shadow-[#25D366]/30"
+              className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-[#25D366] text-white hover:bg-[#1da851] transition-all duration-200 hover:shadow-lg hover:shadow-[#25D366]/30"
+              aria-label="WhatsApp"
             >
               <FaWhatsapp className="text-lg" />
-              <span>9670095005</span>
             </a>
 
             {/* Theme Toggle */}
@@ -176,10 +176,10 @@ export default function Navbar() {
                 href="https://wa.me/919670095005"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-base font-medium py-2 text-[#25D366]"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] text-white hover:bg-[#1da851] transition-all mx-auto"
+                aria-label="WhatsApp"
               >
-                <FaWhatsapp className="text-lg" />
-                +91 9670095005
+                <FaWhatsapp className="text-xl" />
               </a>
               <a
                 href="#contact"
