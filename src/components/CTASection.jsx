@@ -78,7 +78,7 @@ export default function CTASection() {
                     className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#25D366] text-white font-semibold hover:bg-[#1da851] transition-all duration-200 hover:shadow-lg hover:shadow-[#25D366]/30"
                   >
                     <FaWhatsapp className="text-xl" />
-                    Chat on WhatsApp - +91 9670095005
+                    Chat on WhatsApp
                   </a>
 
                   <div className="pt-4">
