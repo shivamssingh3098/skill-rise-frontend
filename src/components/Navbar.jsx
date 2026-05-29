@@ -68,9 +68,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-secondary to-orange-500 flex items-center justify-center text-white font-bold text-lg transition-transform group-hover:scale-105">
-              SR
-            </div>
+            <img
+              src="/logoSkillRise.png"
+              alt="SkillRise Logo"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-secondary transition-transform group-hover:scale-105"
+            />
             <span
               className="text-xl md:text-2xl font-bold"
               style={{ color: "var(--theme-text)" }}

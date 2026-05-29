@@ -207,12 +207,12 @@ export default function HeroSection() {
                     >
                       Hands-on Labs
                     </p>
-                    <p
+                    {/* <p
                       className="text-xs"
                       style={{ color: "var(--theme-text)", opacity: 0.7 }}
                     >
                       Real Equipment
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
