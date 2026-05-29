@@ -34,6 +34,26 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    document.body.style.overflow = "";
+    setMenuOpen(false);
+
+    // get the target element
+    const targetId = href.replace("#", "");
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      // wait a tick for the menu close / DOM to settle, then scroll
+      setTimeout(() => {
+        const navbarHeight = 64; // h-16 on mobile
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -145,7 +165,7 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="block text-base font-medium py-2 transition-colors hover:text-secondary"
                   style={{ color: "var(--theme-text)" }}
                 >
@@ -163,7 +183,7 @@ export default function Navbar() {
               </a>
               <a
                 href="#contact"
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, "#contact")}
                 className="block text-center px-5 py-3 rounded-full bg-secondary text-white font-semibold hover:bg-[#dc2626] transition-all"
               >
                 Register Now
