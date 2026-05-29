@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     // Check localStorage
@@ -15,12 +15,9 @@ export function ThemeProvider({ children }) {
       setDarkMode(false);
       document.body.classList.remove("dark");
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      setDarkMode(prefersDark);
-      if (prefersDark) document.body.classList.add("dark");
+      // Default to dark mode
+      setDarkMode(true);
+      document.body.classList.add("dark");
     }
   }, []);
 
