@@ -75,9 +75,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <a href="#home" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-secondary to-orange-500 flex items-center justify-center text-white font-bold text-lg">
-                SR
-              </div>
+              <img
+                src="/logoSkillRise.png"
+                alt="SkillRise Logo"
+                className="w-11 h-11 rounded-full object-cover border-2 border-secondary"
+              />
               <span className="text-2xl font-bold text-white">
                 Skill<span className="text-secondary">Rise</span>
               </span>
