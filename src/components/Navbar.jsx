@@ -77,7 +77,7 @@ export default function Navbar() {
               className="text-xl md:text-2xl font-bold"
               style={{ color: "var(--theme-text)" }}
             >
-              Skill<span className="text-secondary">Rise</span>
+              Skill<span className="text-secondary">Risers</span>
             </span>
           </a>
 

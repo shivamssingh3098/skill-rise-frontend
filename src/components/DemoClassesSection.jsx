@@ -82,6 +82,13 @@ export default function DemoClassesSection() {
             Experience our teaching style before you enroll. Watch recorded demo
             classes led by industry experts.
           </p>
+
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+            style={{ color: "var(--theme-text)" }}
+          >
+            <span className="gradient-text">Demo Videos Coming Soon</span>
+          </h2>
         </div>
 
         {/* Video Cards */}
@@ -99,7 +106,7 @@ export default function DemoClassesSection() {
               className="glass-card rounded-2xl overflow-hidden group"
             >
               {/* Video Embed */}
-              <div className="relative w-full aspect-video overflow-hidden bg-black">
+              {/* <div className="relative w-full aspect-video overflow-hidden bg-black">
                 <iframe
                   src={`https://www.youtube.com/embed/${demo.videoId}`}
                   title={demo.title}
@@ -107,12 +114,12 @@ export default function DemoClassesSection() {
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
                 />
-                {/* Play Button Overlay Gradient */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              </div>
+              </div> */}
 
               {/* Video Info */}
-              <div className="p-6">
+              {/* <div className="p-6">
                 <h3
                   className="text-xl font-bold mb-2 transition-colors group-hover:text-secondary"
                   style={{ color: "var(--theme-text)" }}
@@ -125,7 +132,7 @@ export default function DemoClassesSection() {
                 >
                   {demo.description}
                 </p>
-              </div>
+              </div> */}
             </motion.div>
           ))}
         </motion.div>
