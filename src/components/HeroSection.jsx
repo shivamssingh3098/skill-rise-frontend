@@ -63,7 +63,7 @@ export default function HeroSection() {
               className="fade-in-up"
             >
               <span
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-bold badge-pulse"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-base font-bold badge-pulse"
                 style={{
                   background: "linear-gradient(135deg, #FFD600 0%, #FFAB00 100%)",
                   color: "#1a1a00",
@@ -72,7 +72,7 @@ export default function HeroSection() {
                   letterSpacing: "0.02em",
                 }}
               >
-                <FiShield className="text-xl" />
+                <FiShield className="text-base sm:text-xl" />
                 🔥 Limited Time: 50% OFF on All Courses
               </span>
             </motion.div>
