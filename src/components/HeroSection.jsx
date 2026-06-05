@@ -62,9 +62,18 @@ export default function HeroSection() {
               transition={{ duration: 0.5 }}
               className="fade-in-up"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-secondary/10 text-secondary border border-secondary/20 badge-pulse">
-                <FiShield className="text-lg" />
-                Limited Time: 50% OFF on All Courses
+              <span
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-base font-bold badge-pulse"
+                style={{
+                  background: "linear-gradient(135deg, #FFD600 0%, #FFAB00 100%)",
+                  color: "#1a1a00",
+                  border: "1.5px solid #FFD600",
+                  boxShadow: "0 0 18px rgba(255, 214, 0, 0.45), 0 2px 8px rgba(255, 171, 0, 0.25)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                <FiShield className="text-xl" />
+                🔥 Limited Time: 50% OFF on All Courses
               </span>
             </motion.div>
 
