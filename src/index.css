@@ -209,16 +209,46 @@ body {
 
 /* ===== BADGE ===== */
 .badge-pulse {
-  animation: badge-pulse 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  animation: badge-glow 2.5s ease-in-out infinite;
 }
 
-@keyframes badge-pulse {
-  0%,
-  100% {
+/* Shimmer shine sweep */
+.badge-pulse::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 70%
+  );
+  animation: badge-shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes badge-glow {
+  0%, 100% {
     transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 214, 0, 0.4), 0 0 30px rgba(255, 171, 0, 0.2);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    box-shadow: 0 0 25px rgba(255, 214, 0, 0.7), 0 0 50px rgba(255, 171, 0, 0.35), 0 0 80px rgba(255, 214, 0, 0.15);
+  }
+}
+
+@keyframes badge-shimmer {
+  0% {
+    left: -75%;
+  }
+  50%, 100% {
+    left: 125%;
   }
 }
 
