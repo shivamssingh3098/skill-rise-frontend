@@ -60,10 +60,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="fade-in-up"
+              className="fade-in-up text-center sm:text-left"
             >
               <span
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs sm:text-base font-bold badge-pulse"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-bold badge-pulse"
                 style={{
                   background: "linear-gradient(135deg, #FFD600 0%, #FFAB00 100%)",
                   color: "#1a1a00",
