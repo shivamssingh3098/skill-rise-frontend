@@ -181,7 +181,7 @@ export default function Footer() {
 
             <div className="mt-8 space-y-2 text-sm text-white/60">
               <p>📞 +91 9670095005</p>
-              <p>✉ a1.kumar@outlook.com</p>
+              <p>✉ Info@skillrisers.tech</p>
             </div>
           </div>
         </div>

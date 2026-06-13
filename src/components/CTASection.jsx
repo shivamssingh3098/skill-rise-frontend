@@ -83,10 +83,10 @@ export default function CTASection() {
 
                   <div className="pt-4">
                     <a
-                      href="mailto:a1.kumar@outlook.com"
+                      href="mailto:Info@skillrisers.tech"
                       className="text-white/60 hover:text-white transition-colors text-sm flex items-center gap-2"
                     >
-                      <span>✉</span> a1.kumar@outlook.com
+                      <span>✉</span> Info@skillrisers.tech
                     </a>
                   </div>
                 </div>

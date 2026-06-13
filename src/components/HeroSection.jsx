@@ -77,6 +77,17 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="fade-in-up text-sm sm:text-base font-bold uppercase tracking-widest"
+              style={{ color: "var(--secondary)" }}
+            >
+              Train with the best to become best
+            </motion.p>
+
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -129,6 +140,24 @@ export default function HeroSection() {
                 <FaWhatsapp className="text-xl" />
                 Contact Now
               </a>
+            </motion.div>
+
+            {/* Trust Badges / Key highlights */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="fade-in-up flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm sm:text-base font-bold"
+              style={{ color: "var(--accent)" }}
+            >
+              <div className="flex items-center gap-2">
+                <FiShield className="text-lg" />
+                <span>Placement Assistance Guaranteed</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <FiShield className="text-lg" />
+                <span>Lifetime Interview Support</span>
+              </div>
             </motion.div>
 
             {/* Stats */}
@@ -187,7 +216,7 @@ export default function HeroSection() {
               </div>
 
               {/* Floating Badge 1 */}
-              <div
+              {/* <div
                 className="absolute -top-4 -right-4 glass-card rounded-xl px-4 py-3 shadow-xl"
                 style={{ background: "var(--theme-card)" }}
               >
@@ -198,10 +227,10 @@ export default function HeroSection() {
                 >
                   Limited Period
                 </p>
-              </div>
+              </div> */}
 
               {/* Floating Badge 2 */}
-              <div
+              {/* <div
                 className="absolute -bottom-4 -left-4 glass-card rounded-xl px-4 py-3 shadow-xl"
                 style={{ background: "var(--theme-card)" }}
               >
@@ -216,15 +245,15 @@ export default function HeroSection() {
                     >
                       Hands-on Labs
                     </p>
-                    {/* <p
+                    <p
                       className="text-xs"
                       style={{ color: "var(--theme-text)", opacity: 0.7 }}
                     >
                       Real Equipment
-                    </p> */}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
