@@ -197,7 +197,7 @@ export default function HeroSection() {
                   Explore Courses
                   <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </a>
-
+      
                 <AnimatePresence>
                   {isHovered && (
                     <motion.div
