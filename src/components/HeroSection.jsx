@@ -1,10 +1,66 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { FiArrowRight, FiShield } from "react-icons/fi";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiArrowRight, FiShield, FiX } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+
+const courseCategories = [
+  {
+    title: "Networking",
+    color: "#3b82f6",
+    courses: ["CCNA", "CCNP R&S", "CCNP Security"],
+  },
+  {
+    title: "Load Balancer",
+    color: "#8b5cf6",
+    courses: ["F5 BIG-IP LTM", "F5 BIG-IP DNS"],
+  },
+  {
+    title: "Network Security",
+    color: "#ef4444",
+    courses: ["Cisco ISE", "Palo Alto", "Fortigate", "ASA", "Checkpoint"],
+  },
+];
 
 export default function HeroSection() {
   const sectionRef = useRef(null);
+  const buttonRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [openUpward, setOpenUpward] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      // If space below is less than 340px, open upward
+      setOpenUpward(spaceBelow < 340);
+    }
+    if (!isMobile) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setIsHovered(false);
+    }
+  };
+
+  const handleButtonClick = (e) => {
+    if (isMobile) {
+      e.preventDefault();
+      setIsHovered(!isHovered);
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -120,13 +176,117 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="fade-in-up flex flex-wrap gap-4"
             >
-              <a
-                href="#courses"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-semibold text-lg hover:bg-[#dc2626] transition-all duration-200 hover:shadow-xl hover:shadow-secondary/30"
+              {isHovered && (
+                <div
+                  className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 sm:hidden"
+                  onClick={() => setIsHovered(false)}
+                />
+              )}
+
+              <div
+                className="relative z-50"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                Explore Courses
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
+                <a
+                  ref={buttonRef}
+                  href="#courses"
+                  onClick={handleButtonClick}
+                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-secondary text-white font-semibold text-lg hover:bg-[#dc2626] transition-all duration-200 hover:shadow-xl hover:shadow-secondary/30"
+                >
+                  Explore Courses
+                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </a>
+
+                <AnimatePresence>
+                  {isHovered && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className={`fixed sm:absolute z-50 w-[290px] sm:w-[540px] max-w-[90vw]
+                        top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                        sm:top-auto sm:left-0 sm:translate-x-0 sm:translate-y-0
+                        ${openUpward ? "sm:bottom-full sm:pb-2 sm:pt-0" : "sm:top-full sm:pt-2 sm:pb-0"}`}
+                    >
+                      <div
+                        className="relative rounded-2xl shadow-2xl border-2 p-5 glass"
+                        style={{
+                          background: "var(--theme-card)",
+                          borderColor: "rgba(239, 68, 68, 0.45)",
+                          boxShadow: "0 20px 45px -10px rgba(239, 68, 68, 0.4), 0 0 30px rgba(239, 68, 68, 0.25)",
+                        }}
+                      >
+                        {/* Modal Header */}
+                        <div
+                          className="flex items-center justify-between pb-2 mb-3.5 border-b"
+                          style={{ borderColor: "var(--theme-border)" }}
+                        >
+                          <span className="text-xs sm:text-sm font-bold gradient-text tracking-wide uppercase">
+                            📚 Select a Course
+                          </span>
+                          <button
+                            onClick={() => setIsHovered(false)}
+                            className="text-var(--theme-text) opacity-70 hover:opacity-100 sm:hidden p-1 rounded-full hover:bg-secondary/10 cursor-pointer"
+                            style={{ color: "var(--theme-text)" }}
+                          >
+                            <FiX className="text-lg" />
+                          </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                          {courseCategories.map((cat) => (
+                            <div key={cat.title} className="space-y-2.5">
+                              <h4
+                                className="text-xs font-bold uppercase tracking-wider pb-1.5 border-b flex items-center gap-1.5"
+                                style={{
+                                  color: "var(--theme-text)",
+                                  borderColor: "var(--theme-border)",
+                                }}
+                              >
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full"
+                                  style={{ backgroundColor: cat.color }}
+                                />
+                                {cat.title}
+                              </h4>
+                              <ul className="space-y-1">
+                                {cat.courses.map((course) => (
+                                  <li key={course}>
+                                    <a
+                                      href="#courses"
+                                      onClick={() => {
+                                        setIsHovered(false);
+                                      }}
+                                      className="block text-xs sm:text-sm transition-all duration-200 hover:translate-x-1 font-semibold py-0.5 rounded cursor-pointer"
+                                      style={{
+                                        color: "var(--theme-text)",
+                                        opacity: 0.85,
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.target.style.color = cat.color;
+                                        e.target.style.opacity = "1";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.target.style.color = "var(--theme-text)";
+                                        e.target.style.opacity = "0.85";
+                                      }}
+                                    >
+                                      {course}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <a
                 href="https://wa.me/919670095005"
                 target="_blank"
